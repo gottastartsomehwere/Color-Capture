@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Recognition</title>
+    <link rel="stylesheet" href="../static/index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Colour Capture</h1>
+        <p class="tagline">Precision color detection made easy.</p>
+        
+      
+        <form action="/process" method="post" enctype="multipart/form-data">
+            <label for="file" class="text">Step 1: Upload Image From Gallery:</label><br><br>
+            <input type="file" name="image" required><br><br>
+            <label for="file" class="text">Step 2: Select the colour that you want isolated in the image:</label><br><br>
+            <input type="color" name="color" required><br><br>
+            <label for="file" class="text">Step 3: Once Done, Click to Generate Output:</label><br><br>
+            <input type="submit" value="Submit">
+            <p class="tag">Your output would be generated in a new page. Thank you :D</p>
+        </form>
+        
+       
+        {% if processed_image %}
+        <h2>Processed Image</h2>
+        <img src="{{ processed_image }}" alt="Output Image">
+        {% endif %}
+    </div>
+</body>
+</html>
